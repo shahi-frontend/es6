@@ -1,20 +1,38 @@
 "use strict";
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var User = function () {
-	function User() {
-		_classCallCheck(this, User);
+class User{
+	constructor(name, email, password){
+		this.name = name;
+		this.email = email;
+		this.password = password;
 	}
 
-	_createClass(User, [{
-		key: "register",
-		value: function register() {
-			console.log("User Registerd");
-		}
-	}]);
+	static countUsers(){
+		console.log("There are 50 users");
+	}
 
-	return User;
-}();
+	register(){
+		console.log(this.name + " got registered!");
+	}
+}
+
+class Member extends User{
+	constructor(name, email, password, memberPackage){
+		super(name, email, password);
+		this.memberPackage = memberPackage;
+	}
+
+	getPackage(){
+		console.log(this.name + " subscribed to " + this.memberPackage);
+	}
+}
+
+let mike = new Member("Mike Ross", "ross@pearson.com", "rachel@123", "Standard Package");
+
+let harvey = new User("Harvey Specter", "specter@pearson.com", "donna@123");
+
+mike.register();
+harvey.register();
+mike.getPackage();
+
+User.countUsers();
