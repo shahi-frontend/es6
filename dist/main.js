@@ -1,38 +1,45 @@
 "use strict";
 
-class User{
-	constructor(name, email, password){
-		this.name = name;
-		this.email = email;
-		this.password = password;
+function testVar() {
+	var a = 30;
+	if (true) {
+		var a = 50;
+		console.log(a);
 	}
-
-	static countUsers(){
-		console.log("There are 50 users");
-	}
-
-	register(){
-		console.log(this.name + " got registered!");
-	}
+	console.log(a);
 }
 
-class Member extends User{
-	constructor(name, email, password, memberPackage){
-		super(name, email, password);
-		this.memberPackage = memberPackage;
-	}
-
-	getPackage(){
-		console.log(this.name + " subscribed to " + this.memberPackage);
-	}
+function uppercase(word) {
+	return word.toUpperCase();
 }
 
-let mike = new Member("Mike Ross", "ross@pearson.com", "rachel@123", "Standard Package");
+var wel = "welcome";
 
-let harvey = new User("Harvey Specter", "specter@pearson.com", "donna@123");
+var template = "<h1>" + uppercase("Hello World") + ", " + wel + "</h1>\n\t\t\t\t\t\t\t\t<p>My first paragraph</p>";
 
-mike.register();
-harvey.register();
-mike.getPackage();
+document.getElementById("demo").innerHTML = template;
 
-User.countUsers();
+var theString = "Hello! My name is Rupali and I love Javascript";
+
+//console.log(theString.startsWith("Hello"));
+//console.log(theString.endsWith("Javascrip"));
+//console.log(theString.includes("Rupali"));
+
+function greet() {
+	var $greeting = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Hello World";
+
+	console.log($greeting);
+}
+
+greet();
+
+var args1 = [1, 2, 3];
+var args2 = [4, 5, 6];
+
+function test() {
+	console.log(args1 + "," + args2);
+}
+
+//test.apply(null, args);
+
+test.apply(undefined, args1.concat(args2));
