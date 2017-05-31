@@ -43,3 +43,62 @@ function test() {
 //test.apply(null, args);
 
 test.apply(undefined, args1.concat(args2));
+
+var myArray = [11, 22, 34, 46, 53];
+var mySet = new Set(myArray);
+
+mySet.add("100");
+mySet.add({ a: 1, b: 2 });
+mySet.delete(22);
+// mySet.clear();
+mySet.add("100");
+
+// console.log(mySet);
+console.log(mySet.size);
+
+mySet.forEach(function (val) {
+	console.log(val);
+});
+
+// let myMap = new Map([['a1', 'Hello'], ['b2', 'GoodBye']]);
+//
+// myMap.set('c1', 'Foo');
+// myMap.delete('a1');
+// console.log(myMap.size);
+
+// let carWeakSet = new WeakSet();
+//
+// let car1 = {
+// 	make: "Honda",
+// 	model: "Civic"
+// }
+// carWeakSet.add(car1);
+//
+// let car2 = {
+// 	make: "Toyato",
+// 	model: "Camrey"
+// }
+// carWeakSet.add(car2);
+// carWeakSet.delete(car1);
+// console.log(carWeakSet);
+
+
+var carWeakMap = new WeakMap();
+
+var key1 = {
+	id: 1
+};
+var car1 = {
+	make: "Honda",
+	model: "Civic"
+};
+
+var key2 = {
+	id: 2
+};
+var car2 = {
+	make: "Toyato",
+	model: "Camrey"
+};
+carWeakMap.set(key1, car1);
+console.log(carWeakMap);
